@@ -1,5 +1,5 @@
 
-public class Helloworld {
+public class MenuManager {
 
 	public static void main(String[] args) {
 		System.out.println("*** Grade Management System Menu ***");
