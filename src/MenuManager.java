@@ -48,8 +48,8 @@ public class MenuManager {
 		String Subjectname = input.next();
 		System.out.print("Input Subject credit:");
 		int Subjectcredit = input.nextInt();
-		System.out.print("Input your grade");
-		int  Yourgrade = input.nextInt();
+		System.out.print("Input your grade:");
+		double  Yourgrade = input.nextDouble();
 	}
 	
 	public static void EditGrade() {
