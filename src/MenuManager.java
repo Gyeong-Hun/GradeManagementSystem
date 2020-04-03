@@ -10,7 +10,7 @@ public class MenuManager {
 		int num = -1;
 		while (num != 5) {
 			System.out.println("--- Grade Management System Menu ---");
-			System.out.println("1. input Grade"); //그 학생의 성적(성적에는 과목, 학점, 받은성적이 들어갈 예정이다.)
+			System.out.println("1. input Grade");
 			System.out.println("2. Delete Grade");
 			System.out.println("3. Edit Grade");
 			System.out.println("4. View Grade");
