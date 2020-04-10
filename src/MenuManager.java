@@ -13,7 +13,7 @@ public class MenuManager {
 			System.out.println("1. input Grade");
 			System.out.println("2. Delete Grade");
 			System.out.println("3. Edit Grade");
-			System.out.println("4. View Grade");
+			System.out.println("4. View Grades");
 			System.out.println("5. Exit");
 			System.out.println("Select one number between 1 - 5 :");
 			num = input.nextInt();
@@ -27,7 +27,7 @@ public class MenuManager {
 				gradeManager.editGrade();
 			}
 			else if (num == 4) {
-				gradeManager.viewGrade();
+				gradeManager.viewGrades();
 			}
 			else {
 				continue;
