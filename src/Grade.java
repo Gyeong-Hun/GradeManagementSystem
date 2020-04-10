@@ -22,6 +22,6 @@ public class Grade {
 	}
 	
 	public void printInfo() {
-		System.out.println("subjectname:" + subjectname + " subjectid :" + subjectid + " subjectcredit:" + subjectcredit + " yourgrade:" + yourgrade);
+		System.out.println(" subjectname:" + subjectname + " subjectid:" + subjectid + " subjectcredit:" + subjectcredit + " yourgrade:" + yourgrade);
 	}
 }
