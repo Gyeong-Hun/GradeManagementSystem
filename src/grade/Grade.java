@@ -12,13 +12,24 @@ public class Grade {
 	public Grade() {
 	}
 	
+	public Grade(GradeKind kind) {
+		this.kind = kind;
+	}
+	
 	public Grade(String subjectname, int subjectid) { 
 		this.subjectname = subjectname;
 		this.subjectid = subjectid;
 	}
 	
-	
 	public Grade(String subjectname, int subjectid, int subjectcredit, double yourgrade) { //생성자
+		this.subjectname = subjectname;
+		this.subjectid = subjectid;
+		this.subjectcredit = subjectcredit;
+		this.yourgrade = yourgrade;
+	}
+	
+	public Grade(GradeKind kind, String subjectname, int subjectid, int subjectcredit, double yourgrade) { //생성자
+		this.kind = kind;
 		this.subjectname = subjectname;
 		this.subjectid = subjectid;
 		this.subjectcredit = subjectcredit;
@@ -66,7 +77,24 @@ public class Grade {
 	}
 	
 	public void printInfo() {
-		System.out.println(" subjectname:" + subjectname + " subjectid:" + subjectid + " subjectcredit:" + subjectcredit + " yourgrade:" + yourgrade);
+		String skind = "none";
+		switch(this.kind) {
+		case freshmen:
+			skind = "1학년";
+			break;
+		case sophomore:
+			skind = "2학년";
+			break;
+		case junior:
+			skind = "3학년";
+			break;
+		case senior:
+			skind = "4학년";
+			break;
+		default:
+			
+		}
+		System.out.println("kind:" + skind + " subjectname:" + subjectname + " subjectid:" + subjectid + " subjectcredit:" + subjectcredit + " yourgrade:" + yourgrade);
 	}
 	
 	public void getUserInput(Scanner input) {

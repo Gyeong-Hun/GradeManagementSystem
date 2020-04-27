@@ -3,10 +3,13 @@ package grade;
 import java.util.Scanner;
 
 public class SophomoreGrade extends Grade { //Grade가 하는 모든 것을 가지게 된다.
-
+	
+	public SophomoreGrade(GradeKind kind) {
+		super(kind); //super는 위의 생성자를 뜻한다. 
+	}
 	
 	public void getUserInput(Scanner input) {
-		System.out.print("Input Subject Name:");
+		System.out.print("Input Subject Name:");//학생학번 -> 과목이름
 		String subjectname = input.next();
 		this.setSubjectname(subjectname);
 		
@@ -26,18 +29,14 @@ public class SophomoreGrade extends Grade { //Grade가 하는 모든 것을 가지게 된다
 				break;
 			}
 			else if (answer == 'n' || answer == 'N') {
-				this.setYourgrade(""); //성적이 없을 경우에 그냥 아무것도 넣지 않는다.
+				this.setYourgrade(-1); //성적이 없을 경우에 그냥 아무것도 넣지 않는다.
 				break;
 			}
 			else {
 			}
 		}
-		System.out.print("Input Subject credit:");
+		System.out.print("Input Subject credit:"); //폰번호 -> 과목학점
 		int subjectcredit = input.nextInt();
 		this.setSubjectcredit(subjectcredit);
-		
 	}
-
-private void setYourgrade(String string) {
-}
 }

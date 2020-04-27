@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import grade.Grade;
+import grade.GradeKind;
+import grade.SeniorGrade;
 import grade.SophomoreGrade;
 
 public class GradeManager {
@@ -10,34 +12,40 @@ public class GradeManager {
 	GradeManager(Scanner input){
 		this.input = input;
 	}
-	
 	public void inputGrade() {
 		int kind = 0;
 		Grade grade;
 		while(kind != 1 && kind !=2) {
 			System.out.println("1. for freshmen");
 			System.out.println("2. for sophomore");
-			System.out.print("Select num for Grade Kind between 1 and 2:");
+			System.out.println("3. for senior");
+			System.out.print("Select num 1, 2, or 3 for Grade Kind: ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				grade = new Grade();
+				grade = new Grade(GradeKind.freshmen);
 				grade.getUserInput(input);
 				grades.add(grade);
 				break;
 			}
 			else if (kind == 2) {
-				grade = new SophomoreGrade();
+				grade = new SophomoreGrade(GradeKind.sophomore);
 				grade.getUserInput(input);
 				grades.add(grade);
 				break;
 			}
+			else if (kind == 3) {
+				grade = new SeniorGrade(GradeKind.senior);
+				grade.getUserInput(input);
+				grades.add(grade);
+				break;
+			}
+			
 			else {
 				System.out.print("Select num for Grade Kind between 1 and 2:");
 			}
 		}
 			
-
-		 //grades목록에 add해서 new grade 정보를 추가해준다.
+		
 	}
 	
 	public void deleteGrade() { //과목번호 입력했을 때 아무것도 없으면 없다고 말해주고, 입력한 과목번호가 앞에서 입력한 과목번호라면 grade를 null로 만든다.
@@ -85,8 +93,8 @@ public class GradeManager {
 					}
 					else if (num == 2) {
 						System.out.print("Input Subject Id:");
-						int subjectid1 = input.nextInt();
-						grade.setSubjectid(subjectid1);
+						subjectid = input.nextInt();
+						grade.setSubjectid(subjectid);
 					}
 					else if (num == 3) {
 						System.out.print("Input Subject credit:");
