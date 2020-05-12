@@ -2,7 +2,7 @@ package grade;
 
 import java.util.Scanner;
 
-public class Freshmen extends Grade {
+public class Freshmen extends UnivGrade {
 	
 	public Freshmen(GradeKind kind) {
 		super(kind); //super는 위의 생성자를 뜻한다. 
