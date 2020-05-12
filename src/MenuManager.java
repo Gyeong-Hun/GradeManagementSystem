@@ -9,32 +9,36 @@ public class MenuManager {
 		
 		int num = -1;
 		while (num != 5) {
-			System.out.println("--- Grade Management System Menu ---");
-			System.out.println("1. input Grade");
-			System.out.println("2. Delete Grade");
-			System.out.println("3. Edit Grade");
-			System.out.println("4. View Grades");
-			System.out.println("5. Exit");
-			System.out.println("Select one number between 1 - 5 :");
+			showMenu();
 			num = input.nextInt();
-			if (num == 1) {
+			switch(num){
+			case 1:
 				gradeManager.inputGrade();
-			}
-			else if (num == 2) {
+				break;
+			case 2:
 				gradeManager.deleteGrade();
-			}
-			else if (num == 3) {
+				break;
+			case 3:
 				gradeManager.editGrade();
-			}
-			else if (num == 4) {
+				break;
+			case 4:
 				gradeManager.viewGrades();
-			}
-			else {
+				break;
+			default:
 				continue;
 			}
 		}
 	}
 	
+	public static void showMenu() {
+	System.out.println("--- Grade Management System Menu ---");
+	System.out.println("1. input Grade");
+	System.out.println("2. Delete Grade");
+	System.out.println("3. Edit Grade");
+	System.out.println("4. View Grades");
+	System.out.println("5. Exit");
+	System.out.println("Select one number between 1 - 5 :");
+	}
 }
 	
 	

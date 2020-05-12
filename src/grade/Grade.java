@@ -2,7 +2,7 @@ package grade;
 
 import java.util.Scanner;
 
-public class Grade {
+public abstract class Grade implements GradeInput{ //abstract 붙어준다는것은 Grade라는 객체를 생성하지 않는다라는 걸 의미한다.
 	protected GradeKind kind = GradeKind.freshmen;
 	protected String subjectname; //protected는 자식한테 상속은 되는데 그 외의 클래스는 접근 못하도록하는 것이다.
 	protected int subjectid;
@@ -76,7 +76,33 @@ public class Grade {
 		this.yourgrade = yourgrade;
 	}
 	
-	public void printInfo() {
+	public abstract void printInfo();
+	
+	public void setSubjectName(Scanner input) {
+		System.out.print("Input Subject Name:");
+		String subjectname = input.next();
+		this.setSubjectname(subjectname);
+	}
+	
+	public void setSubjectId(Scanner input) {
+		System.out.print("Input Subject Id:");
+		int subjectid = input.nextInt();
+		this.setSubjectid(subjectid);
+	}
+	
+	public void setSubjectcredit(Scanner input) {
+		System.out.print("Input Subject credit:");
+		int subjectcredit = input.nextInt();
+		this.setSubjectcredit(subjectcredit);
+	}
+	
+	public void setYourgrade(Scanner input) {
+		System.out.print("Input your grade:");
+		double yourgrade = input.nextDouble();
+		this.setYourgrade(yourgrade);
+	}
+	
+	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {
 		case freshmen:
@@ -92,26 +118,7 @@ public class Grade {
 			skind = "4학년";
 			break;
 		default:
-			
 		}
-		System.out.println("kind:" + skind + " subjectname:" + subjectname + " subjectid:" + subjectid + " subjectcredit:" + subjectcredit + " yourgrade:" + yourgrade);
-	}
-	
-	public void getUserInput(Scanner input) {
-		System.out.print("Input Subject Name:");
-		String subjectname = input.next();
-		this.setSubjectname(subjectname);
-		
-		System.out.print("Input Subject Id:");
-		int subjectid = input.nextInt();
-		this.setSubjectid(subjectid);
-		
-		System.out.print("Input Subject credit:");
-		int subjectcredit = input.nextInt();
-		this.setSubjectcredit(subjectcredit);
-		
-		System.out.print("Input your grade:");
-		double yourgrade = input.nextDouble();
-		this.setYourgrade(yourgrade);
+		return skind;
 	}
 }
