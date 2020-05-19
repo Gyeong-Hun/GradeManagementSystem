@@ -26,3 +26,4 @@ public interface GradeInput {
 	
 	public void setYourgrade(Scanner input);
 }
+

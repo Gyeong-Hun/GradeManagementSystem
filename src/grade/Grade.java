@@ -122,3 +122,4 @@ public abstract class Grade implements GradeInput{ //abstract 붙어준다는것은 Gra
 		return skind;
 	}
 }
+

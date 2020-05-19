@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import grade.Freshmen;
@@ -17,44 +18,55 @@ public class GradeManager {
 	public void inputGrade() {
 		int kind = 0;
 		GradeInput gradeInput;
-		while(kind != 1 && kind !=2) {
-			System.out.println("1. for freshmen");
-			System.out.println("2. for sophomore");
-			System.out.println("3. for senior");
-			System.out.print("Select num 1, 2, or 3 for Grade Kind: ");
-			kind = input.nextInt();
-			if (kind == 1) {
-				gradeInput = new Freshmen(GradeKind.freshmen);
-				gradeInput.getUserInput(input);
-				grades.add(gradeInput);
-				break;
+
+		while(kind < 1 || kind > 3) {
+			try {
+				System.out.println("1. for freshmen");
+				System.out.println("2. for sophomore");
+				System.out.println("3. for senior");
+				System.out.print("Select num 1, 2, or 3 for Grade Kind: ");
+				kind = input.nextInt();
+				if (kind == 1) {
+					gradeInput = new Freshmen(GradeKind.freshmen);
+					gradeInput.getUserInput(input);
+					grades.add(gradeInput);
+					break;
+				}
+				else if (kind == 2) {
+					gradeInput = new SophomoreGrade(GradeKind.sophomore);
+					gradeInput.getUserInput(input);
+					grades.add(gradeInput);
+					break;
+				}
+				else if (kind == 3) {
+					gradeInput = new SeniorGrade(GradeKind.senior);
+					gradeInput.getUserInput(input);
+					grades.add(gradeInput);
+					break;
+				}
+
+				else {
+					System.out.print("Select num for Grade Kind between 1 and 2:");
+				}
 			}
-			else if (kind == 2) {
-				gradeInput = new SophomoreGrade(GradeKind.sophomore);
-				gradeInput.getUserInput(input);
-				grades.add(gradeInput);
-				break;
-			}
-			else if (kind == 3) {
-				gradeInput = new SeniorGrade(GradeKind.senior);
-				gradeInput.getUserInput(input);
-				grades.add(gradeInput);
-				break;
-			}
-			
-			else {
-				System.out.print("Select num for Grade Kind between 1 and 2:");
+			catch(InputMismatchException e){
+				System.out.println("Please put an integer between 1 and 3 !");
+				if(input.hasNext()) {
+					input.next();
+				}
+				kind = -1;
+
 			}
 		}
 	}
-	
+
 	public void deleteGrade() { //과목번호 입력했을 때 아무것도 없으면 없다고 말해주고, 입력한 과목번호가 앞에서 입력한 과목번호라면 grade를 null로 만든다.
 		System.out.print("Subject ID:");
 		int subjectid = input.nextInt();
 		int index = findIndex(subjectid);
 		removefromGrades(index, subjectid);
 	}
-	
+
 	public int findIndex(int subjectid) {
 		int index = -1; //array에서 index를 못찾았다라는 의미
 		for (int i=0; i<grades.size(); i++) {//입력받은 id와 같은 id가 있는지 찾아줘야한다.
@@ -65,7 +77,7 @@ public class GradeManager {
 		}
 		return index;
 	}
-	
+
 	public int removefromGrades(int index, int subjectid) {
 		if (index >= 0) {//array에서 index를 찾았다면
 			grades.remove(index); //grades 목록의 index가 삭제가 된다
@@ -108,7 +120,7 @@ public class GradeManager {
 			} //if
 		} //for
 	}
-	
+
 	public void viewGrades() {
 		System.out.println("# of registered grades:" + grades.size());
 		for (int i=0; i<grades.size(); i++) {//여러개의 성적이 있으므로 for문을 통해서 출력한다.

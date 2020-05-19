@@ -41,3 +41,4 @@ public class SeniorGrade extends UnivGrade {
 		System.out.println("kind:" + skind + " subjectname:" + subjectname + " subjectid:" + subjectid + " subjectcredit:" + subjectcredit + " yourgrade:" + yourgrade + " wanted yourgrade:" + wantedyourgrade);
 	}
 }
+

@@ -6,3 +6,4 @@ public enum GradeKind { //성적의 종류
 	junior,
 	senior //대학교 4학년 (교수님은 elementarySchool)
 }
+//UnivGrade 클래스가 교수님의 TeenageStudent 클래스임 
