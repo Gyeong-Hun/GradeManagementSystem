@@ -1,8 +1,14 @@
 package grade;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Grade implements GradeInput{ //abstract 붙어준다는것은 Grade라는 객체를 생성하지 않는다라는 걸 의미한다.
+public abstract class Grade implements GradeInput, Serializable{ //abstract 붙어준다는것은 Grade라는 객체를 생성하지 않는다라는 걸 의미한다.
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6191046202401285545L;
+	
 	protected GradeKind kind = GradeKind.freshmen;
 	protected String subjectname; //protected는 자식한테 상속은 되는데 그 외의 클래스는 접근 못하도록하는 것이다.
 	protected int subjectid;

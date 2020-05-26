@@ -1,0 +1,2 @@
+5월 26, 2020 3:10:15 오후 log.EventLogger log
+정보: view a list of grades

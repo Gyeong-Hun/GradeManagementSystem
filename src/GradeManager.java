@@ -1,20 +1,31 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import grade.Freshmen;
-import grade.Grade;
 import grade.GradeInput;
 import grade.GradeKind;
 import grade.SeniorGrade;
 import grade.SophomoreGrade;
 
-public class GradeManager {
+public class GradeManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7713590917848113301L;
+	
+	
 	ArrayList<GradeInput> grades = new ArrayList<GradeInput>(); //성적을 제한되지 않고 관리하기 위해서 grades라는 이름의 리스트를 만들어준다.
-	Scanner input;
+	transient Scanner input;
 	GradeManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void setScanner(Scanner input) {
+		this.input = input; 
+	}
+	
 	public void inputGrade() {
 		int kind = 0;
 		GradeInput gradeInput;
