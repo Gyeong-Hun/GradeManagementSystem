@@ -2,12 +2,17 @@ package GUI;
 
 import javax.swing.JTable;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-public class GradeViewer extends JFrame{
+public class GradeViewer extends JPanel{
+	
+	WindowFrame frame;
 
-	public GradeViewer() {
+	public GradeViewer(WindowFrame frame) {
+		this.frame = frame;
+		
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("SubjectName");
 		model.addColumn("ID");
@@ -18,8 +23,5 @@ public class GradeViewer extends JFrame{
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
 	}
 }
