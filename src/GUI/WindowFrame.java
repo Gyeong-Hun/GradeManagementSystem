@@ -3,21 +3,28 @@ package GUI;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.GradeManager;
+
 public class WindowFrame extends JFrame{
 
+	GradeManager gradeManager;
 	MenuSelection menuselection;
 	GradeAdder gradeadder;
 	GradeViewer gradeviewer;
 	
-	public WindowFrame() {
-		this.menuselection = new MenuSelection(this);
-		this.gradeadder = new GradeAdder(this);
-		this.gradeviewer = new GradeViewer(this);
-		
+	public WindowFrame(GradeManager gradeManager) {
 		this.setSize(500, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("My Frame");
 		
-		this.setupPanel(menuselection);
+		this.gradeManager = gradeManager; 
+		menuselection = new MenuSelection(this);
+		gradeadder = new GradeAdder(this);
+		gradeviewer = new GradeViewer(this, this.gradeManager);
+
+		
+		this.add(menuselection);
+		
 		this.setVisible(true);
 	}
 

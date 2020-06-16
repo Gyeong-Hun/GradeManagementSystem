@@ -1,4 +1,5 @@
 package listeners;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,5 +23,4 @@ public class ButtonAddListener implements ActionListener {
 		GradeAdder adder = frame.getGradeadder();
 		frame.setupPanel(adder);
 	}
-
 }

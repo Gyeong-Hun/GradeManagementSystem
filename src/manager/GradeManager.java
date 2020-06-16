@@ -1,9 +1,11 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import grade.Freshmen;
+import grade.Grade;
 import grade.GradeInput;
 import grade.GradeKind;
 import grade.SeniorGrade;
@@ -138,6 +140,15 @@ public class GradeManager implements Serializable{
 			grades.get(i).printInfo();//grades의 add index의 i를 가져오고 그 객체의 정보를 출력해준다.
 		}
 	}
+	
+	public int size() {
+		return grades.size();
+	}
+	
+	public GradeInput get(int index) {
+		return (Grade) grades.get(index);
+	}
+	
 	public void showEditMenu() {
 		System.out.println("- Grade Info Edit Menu -");
 		System.out.println("1. Edit Subject Name");

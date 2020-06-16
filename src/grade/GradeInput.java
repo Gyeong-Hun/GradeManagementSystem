@@ -8,9 +8,15 @@ public interface GradeInput {
 	
 	public void setSubjectid(int subjectid);
 	
+	public String getSubjectname();
+	
 	public void setSubjectname(String subjectname);
 	
+	public int getSubjectcredit();
+	
 	public void setSubjectcredit(int subjectcredit);//교수님은 email 나는 과목학점
+	
+	public double getYourgrade();
 	
 	public void setYourgrade(double yourgrade);//교수님은 setphone
 	
